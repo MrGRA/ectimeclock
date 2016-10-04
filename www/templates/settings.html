@@ -1,0 +1,28 @@
+<ion-view title="Settings" id="page3">
+    <ion-content padding="true" class="has-header">
+        <h5 id="settings-title" style="color:#000000;">Timeclock Settings</h5>
+
+        <form name="userForm" class="list" ng-submit="submitForm(userForm.$valid)" novalidate>
+
+          <!-- NAME -->
+          <label class="item item-input item-floating-label">
+                <span class="input-label">Name</span>
+                <input type="text" name="name" class="form-control" ng-model="vm.user.name" required placeholder="Name">
+          </label>
+
+          <!-- USERNAME -->
+          <label class="item item-input item-floating-label">
+                <span class="input-label">Username</span>
+                <input type="text" name="username" class="form-control" ng-model="vm.user.username" ng-minlength="3" ng-maxlength="12" required placeholder="Username">
+          </label>
+         
+          <!-- PASSWORD -->
+          <label class="item item-input item-floating-label">
+                <span class="input-label">Password</span>
+                <input type="password" name="pw" class="form-control" ng-model="vm.user.password" required placeholder="Password">
+          </label>
+
+          <button type="submit" data-ng-click="vm.saveSettings()" ng-disabled="userForm.$invalid || userForm.$pristine" class="button button-balanced button-block ">Save</button>
+        </form>        
+    </ion-content>
+</ion-view>

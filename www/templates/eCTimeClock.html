@@ -1,0 +1,53 @@
+<ion-view title="EC Time Clock" id="page2">
+    <ion-content padding="true" class="has-header">
+        <div>
+            <!--<img src="img/IXUfPL0THu3KCnlgGqVv_europe_1779476c.jpg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">-->
+            <img src="img/ec.png" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+        </div>
+        <div class="spacer" style="width: 300px; height: 17px;"></div>
+        <div ng-if="vm.isOnline && !vm.logged">
+            <button data-ng-click="vm.login()" class="button button-balanced button-large button-block icon-left ion-log-in">Login</button>
+            <!-- NOTE IN-->
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Note</span>
+                <input type="text" name="Note" class="form-control" ng-model="vm.noteIn" placeholder="additional information">
+            </label>
+        </div>
+
+        <div ng-if="vm.isOnline && vm.logged">
+            <div class="row">
+                <div class="col">
+                    <div class="text-center">
+                        <h3 class="assertive" style="text-align: center;">{{vm.clock}}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <button data-ng-click="vm.logout()" class="button button-royal button-large button-block icon-right ion-log-out">Go Home</button>
+            <!-- NOTE OUT-->
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Note</span>
+                <input type="text" name="Note" class="form-control" ng-model="vm.noteOut" placeholder="additional information">
+            </label>
+        </div>
+
+        <label class="item" ng-if="!vm.isOnline">You are not connected to the Internet!</label>
+        <div ng-if="vm.isOnline">{{vm.today}}</div>
+
+        <div class="row">
+            <div class="col">
+                <div class="text-center">
+                    <h3 class="balanced" style="text-align: center;">{{vm.msg}}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="text-center">
+                    <h3 class="assertive" style="text-align: center;">{{vm.error}}</h3>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
